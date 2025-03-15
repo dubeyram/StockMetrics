@@ -1,0 +1,17 @@
+line-length = 79
+indent-width = 4
+target-version = "py311"
+[lint]
+select = ["ALL"]
+ignore = ["E501", "ANN001", "ANN002", "ANN003", "ANN201", "TRY300", "ANN202", "RUF012"]
+exclude = ["manage.py", "models.py", "*/migrations/*", "*/tests/*", "*/__init__.py"]
+fixable = ["ALL"]
+unfixable = []
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = 2
