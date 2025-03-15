@@ -238,8 +238,7 @@ class FetchNSEDataView(APIView):
         except requests.exceptions.RequestException as e:
             return Response({"error": str(e)}, status=500)
 
-
 @lru_cache(maxsize=5)
-def get_config():
+def get_config(requests):
     """Get the base URL for the GROWW API."""
-    return JsonResponse({"GROWW_BASE_URL": settings.GROWW_BASE_URL})
+    return JsonResponse({"APP_BASE_URL": settings.APP_BASE_URL})

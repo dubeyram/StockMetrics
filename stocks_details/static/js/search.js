@@ -1,15 +1,15 @@
 async function loadConfig() {
     const response = await fetch("api/config/");
     const data = await response.json();
-    window.GROWW_BASE_URL = data.GROWW_BASE_URL;
-    localStorage.setItem("GROWW_BASE_URL", data.GROWW_BASE_URL);
-    console.log("GROWW_BASE_URL:", window.GROWW_BASE_URL);
+    window.APP_BASE_URL = data.APP_BASE_URL;
+    localStorage.setItem("APP_BASE_URL", data.APP_BASE_URL);
+    console.log("APP_BASE_URL:", window.APP_BASE_URL);
 }
 
 
 $(document).ready(function () {
-    if (localStorage.getItem("GROWW_BASE_URL")) {
-        window.GROWW_BASE_URL = localStorage.getItem("GROWW_BASE_URL");
+    if (localStorage.getItem("APP_BASE_URL")) {
+        window.APP_BASE_URL = localStorage.getItem("APP_BASE_URL");
     }
     else {
         loadConfig();
@@ -29,7 +29,7 @@ $(document).ready(function () {
 
             //API call only when length is 3 or more
             typingTimer = setTimeout(() => {
-                if (query.length >= 3 && GROWW_BASE_URL) {
+                if (query.length >= 3 && APP_BASE_URL) {
                     fetchMatchingKeywords(query);
                 }
             }, typingDelay);
@@ -38,7 +38,7 @@ $(document).ready(function () {
 
     function fetchMatchingKeywords(query) {
         $.ajax({
-            url: `${GROWW_BASE_URL}/fetch_nse/?q=${query}`, // API call
+            url: `${APP_BASE_URL}/fetch_nse/?q=${query}`, // API call
             method: "GET",
             success: function (data) {
                 displayDropdown(data.symbols);
@@ -96,7 +96,7 @@ $(document).ready(function () {
 
     function fetchStockDetails(symbol) {
         $.ajax({
-            url: `${GROWW_BASE_URL}/diff-ath-cmp?codes=${symbol}`,
+            url: `${APP_BASE_URL}/diff-ath-cmp?codes=${symbol}`,
             method: "GET",
             success: function (data) {
                 displayStockDetails(data);

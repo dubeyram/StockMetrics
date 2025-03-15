@@ -128,4 +128,4 @@ REST_FRAMEWORK = {
 }
 
 
-GROWW_BASE_URL = os.getenv("GROWW_BASE_URL")
+APP_BASE_URL = os.getenv("APP_BASE_URL")
