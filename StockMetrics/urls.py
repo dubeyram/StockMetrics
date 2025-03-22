@@ -19,7 +19,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+handler404 = "stocks_details.views.custom_404"
+
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("stock-admin/", admin.site.urls),
     path("stocks/", include("stocks_details.urls")),
 ]

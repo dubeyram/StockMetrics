@@ -21,7 +21,7 @@ class Industry(models.Model):
 
 
 class Stock(models.Model):
-    symbol = models.CharField(max_length=10, unique=True)
+    symbol = models.CharField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
     industry = models.ForeignKey(
         Industry,
